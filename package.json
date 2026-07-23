@@ -2,8 +2,6 @@
   "name": "bug-tracker-platform",
   "private": true,
   "scripts": {
-    "install-all": "cd server && npm install && cd ../client && npm install",
-    "build": "cd client && npm install && npm run build",
     "start": "cd server && npm install && npm start"
   }
 }
