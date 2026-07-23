@@ -29,6 +29,9 @@ const createProject = async (req, res) => {
 
 // Get All Projects
 const getProjects = async (req, res) => {
+    const projects = await Project.findAll();
+
+    console.log("Projects from DB:", projects);
     try {
         const projects = await Project.findAll();
 

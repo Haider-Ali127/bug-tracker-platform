@@ -78,14 +78,14 @@ const Projects = () => {
                     ? "Project Updated Successfully"
                     : "Project Created Successfully"
             );
-             
+
 
             addNotification(
                 editingId
                     ? "✏️ Project Updated"
                     : "📁 New Project Created"
             );
-           
+
 
             setEditingId(null);
             setShowForm(false);
@@ -114,7 +114,7 @@ const Projects = () => {
             fetchProjects();
             toast.success("Project Deleted Successfully");
             addNotification("🗑️ Project Deleted");
-            
+
 
         } catch (error) {
             console.log(error.response?.data || error.message);
