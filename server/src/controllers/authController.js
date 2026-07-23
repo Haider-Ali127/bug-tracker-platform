@@ -5,8 +5,8 @@ const User = require("../models/User");
 // Register
 const register = async (req, res) => {
     try {
-        const { name, email, password, role } = req.body;
-        if (!name || !email || !password || !role) {
+        const { name, email, password } = req.body;
+        if (!name || !email || !password) {
             return res.status(400).json({
                 message: "All fields are required",
             });
@@ -28,7 +28,7 @@ const register = async (req, res) => {
             name,
             email,
             password: hashedPassword,
-            role,
+            role: "Developer",
         });
 
         res.status(201).json({

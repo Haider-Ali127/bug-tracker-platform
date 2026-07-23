@@ -8,7 +8,11 @@ import {
     FaTrash,
 } from "react-icons/fa";
 const TopNavbar = () => {
-    const userName = localStorage.getItem("userName") || "Developer";
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    const userName = user?.name || "Developer";
+    const userRole = user?.role || "Developer";
+
     const [showNotifications, setShowNotifications] = useState(false);
     const notificationRef = useRef(null);
 
@@ -17,12 +21,15 @@ const TopNavbar = () => {
         clearNotifications,
     } = useNotifications();
 
-
     const today = new Date().toLocaleDateString("en-US", {
         weekday: "long",
         month: "long",
         day: "numeric",
     });
+
+    useEffect(() => {
+        // your existing code...
+    }, []);
     useEffect(() => {
 
         const handleClickOutside = (event) => {
@@ -162,7 +169,7 @@ const TopNavbar = () => {
                         </h4>
 
                         <p className="text-xs text-gray-400">
-                            Admin
+                            {userRole}
                         </p>
 
                     </div>

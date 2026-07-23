@@ -30,9 +30,9 @@ const Login = () => {
 
         try {
             const data = await loginUser(formData);
-
             localStorage.setItem("token", data.token);
-            localStorage.setItem("userName", data.user.name);
+            localStorage.setItem("user", JSON.stringify(data.user));
+            localStorage.setItem("userRole", data.user.role);
 
             toast.success(data.message);
 
