@@ -34,6 +34,9 @@ const createIssue = async (req, res) => {
             issue,
         });
     } catch (error) {
+        console.log("CREATE ISSUE ERROR:");
+        console.log(error);
+
         res.status(500).json({
             message: error.message,
         });

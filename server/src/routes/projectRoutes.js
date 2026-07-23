@@ -23,7 +23,6 @@ router.put("/:id", authMiddleware, updateProject);
 router.delete(
     "/:id",
     authMiddleware,
-    roleMiddleware("Admin"),
     deleteProject
 );
 

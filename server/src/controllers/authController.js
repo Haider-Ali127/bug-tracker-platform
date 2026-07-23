@@ -48,7 +48,6 @@ const register = async (req, res) => {
     }
 };
 
-// Login
 const login = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -57,10 +56,16 @@ const login = async (req, res) => {
             return res.status(400).json({
                 message: "Email and Password are required",
             });
-            const user = await User.findOne({
-                where: { email },
-            });
+        }
 
+        const user = await User.findOne({
+            where: { email },
+        });
+
+        if (!user) {
+            return res.status(400).json({
+                message: "Invalid Email or Password",
+            });
         }
 
         const isMatch = await bcrypt.compare(password, user.password);

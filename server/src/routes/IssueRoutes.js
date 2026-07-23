@@ -19,7 +19,6 @@ router.put("/:id", authMiddleware, updateIssue);
 router.delete(
     "/:id",
     authMiddleware,
-    roleMiddleware("Admin"),
     deleteIssue
 );
 module.exports = router;

@@ -1,16 +1,21 @@
-const dashboardRoutes = require("./routes/dashboardRoutes");
-const commentRoutes = require("./routes/commentRoutes");
-const issueRoutes = require("./routes/issueRoutes");
-const projectRoutes = require("./routes/projectRoutes");
 const express = require("express");
 const cors = require("cors");
 
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
+const projectRoutes = require("./routes/projectRoutes");
+const issueRoutes = require("./routes/issueRoutes");
+const commentRoutes = require("./routes/commentRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 const app = express();
 
-app.use(cors());
+app.use(
+    cors({
+        origin: "http://localhost:5173",
+    })
+);
+
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
