@@ -18,6 +18,13 @@ app.use(
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+    res.json({
+        success: true,
+        message: "🚀 Bug Tracker Backend is Running Successfully",
+    });
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/projects", projectRoutes);
