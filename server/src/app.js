@@ -14,7 +14,7 @@ app.use(
     cors({
         origin: [
             "http://localhost:5173",
-            "https://bug-tracker-platform.vercel.app/",
+            "https://bug-tracker-platform.vercel.app",
         ],
         credentials: true,
     })
