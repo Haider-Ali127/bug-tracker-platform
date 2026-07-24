@@ -11,23 +11,28 @@ const dashboardRoutes = require("./routes/dashboardRoutes");
 const app = express();
 
 app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "https://bug-tracker-platform.vercel.app/",
-    ],
-    credentials: true,
-  })
+    cors({
+        origin: [
+            "http://localhost:5173",
+            "https://bug-tracker-platform.vercel.app/",
+        ],
+        credentials: true,
+    })
 );
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-    res.json({
-        success: true,
-        message: "🚀 Bug Tracker Backend is Running Successfully",
-    });
-});
+app.use(
+    cors({
+        origin: [
+            "http://localhost:5173",
+            "https://bug-tracker-platform.vercel.app",
+        ],
+        methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+        credentials: true,
+    })
+);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
